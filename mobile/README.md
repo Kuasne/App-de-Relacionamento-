@@ -1,25 +1,35 @@
 # Mobile (React Native / Expo)
 
-Este diretório está preparado para receber o aplicativo React Native.
+Agora este diretório já contém um front funcional de MVP com:
 
-## Sugestão de bootstrap
+- Card de perfil com gesto de swipe (esquerda/direita)
+- Botões de ação para curtir/passar
+- Estado local de contagem de likes/passes
+- Dados mockados prontos para trocar por API
+
+## Rodar localmente
 
 ```bash
-npx create-expo-app@latest mobile-app
+cd mobile
+npm install
+npm run start
 ```
 
-## Telas recomendadas no MVP
+## Estrutura
 
-- Splash / Onboarding
-- Cadastro / Login
-- Feed de cards (swipe)
-- Tela de Match
-- Chat
-- Perfil e Configurações
+```text
+mobile/
+  App.js
+  src/
+    components/
+      SwipeCard.js
+      ActionButtons.js
+    services/
+      mockCandidates.js
+    theme/
+      theme.js
+```
 
-## Integração com backend
+## Próxima integração com backend
 
-Base URL local durante dev:
-
-- Android Emulator: `http://10.0.2.2:3000/api`
-- iOS Simulator: `http://localhost:3000/api`
+Trocar `mockCandidates` por `GET /api/users/discovery` e enviar ações para `POST /api/swipes`.

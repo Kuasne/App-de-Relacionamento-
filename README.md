@@ -9,20 +9,21 @@ Este repositório contém uma base inicial para um aplicativo de relacionamento 
 
 ## Stack escolhida
 
-- **Mobile**: React Native (Expo)
-- **Backend**: Node.js + Express + Socket.IO
+- **Mobile**: React Native (Expo) ✅ (MVP implementado em `mobile/`)
+- **Backend**: Node.js + Express + Socket.IO ✅
 - **Banco de dados gratuito (longo prazo)**: **PostgreSQL** (recomendado com Supabase/Neon free tier)
 - **Cache**: Redis (opcional no MVP)
 
-## Funcionalidades do MVP
+## Funcionalidades implementadas no MVP
 
-1. Cadastro/Login com JWT
-2. Perfil do usuário (bio, idade, interesses, localização)
-3. Feed de descoberta (mockado inicialmente)
-4. Swipe (like/pass)
-5. Match quando houver like mútuo
-6. Chat em tempo real após match
-7. Endpoint de denúncia/bloqueio (estrutura inicial)
+1. Cadastro/Login com JWT (backend)
+2. Perfil do usuário (backend)
+3. Feed de descoberta (backend)
+4. Swipe (backend + front com gesto)
+5. Match quando houver like mútuo (backend)
+6. Chat em tempo real por match (backend com Socket.IO)
+7. Endpoint de denúncia/bloqueio (backend)
+8. Interface mobile de cards com curtir/passar e estado local
 
 ## Estrutura
 
@@ -36,9 +37,16 @@ backend/
     services/
     utils/
 mobile/
+  App.js
+  src/
+    components/
+    services/
+    theme/
 ```
 
-## Como executar backend
+## Como executar
+
+### Backend
 
 ```bash
 cd backend
@@ -49,6 +57,14 @@ npm run dev
 
 Servidor padrão: `http://localhost:3000`
 
+### Mobile (Expo)
+
+```bash
+cd mobile
+npm install
+npm run start
+```
+
 ## Próximos passos
 
 - Conectar PostgreSQL real via Prisma
@@ -56,3 +72,4 @@ Servidor padrão: `http://localhost:3000`
 - Push notifications (Expo/Firebase)
 - Moderação automatizada (texto/imagem)
 - Ajustar algoritmo de ranking com telemetria
+- Integrar front com os endpoints reais (`/users/discovery` e `/swipes`)
